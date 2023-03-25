@@ -114,17 +114,38 @@ function checaIgualdadeDesconsiderandoCase(string1, string2) {
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
+  const pergAnoAtual = prompt("Qual seu ano atual?")
+  const pergAnoNascimento = prompt("Qual seu ano de nascimento?")
+  const pergAnoEmissao = prompt("Qual o ano de emissão do seu RG?")
 
+  const idade = pergAnoAtual - pergAnoNascimento
+  const renovacao = pergAnoAtual - pergAnoEmissao
+
+
+  const dataRenovacao20 = idade <= 20 && renovacao >= 5
+  const dataRenovacao20e50 = idade > 20 && idade <= 50 && renovacao >= 10
+  const dataRenovacao50 = idade > 50 && renovacao >= 15
+
+
+console.log(dataRenovacao20 || dataRenovacao20e50 || dataRenovacao50)
 }
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
+  const multi4 = ano % 4 == 0
+  const multi4ENao100 = (multi4 && (ano % 100 != 0))
+  const multi400E100 = (multi4 && (ano % 100 == 0) && (ano % 400 == 0))
 
+  return multi4ENao100 || multi400E100
 }
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
   // implemente sua lógica aqui
-
+  const pergIdade = prompt("Você tem mais de 18 anos?");
+  const pergEnsinoMedio = prompt("Você possui ensino médio completo?");
+  const pergDisponibilidade = prompt("Você possui disponibilidade exclusiva durante os horários do curso?");
+ 
+  console.log((pergIdade === "sim") && (pergEnsinoMedio === "sim") && (pergDisponibilidade === "sim"));
 }
